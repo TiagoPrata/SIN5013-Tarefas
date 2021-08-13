@@ -50,20 +50,20 @@ Prove por indução que $$2^n > 2^{n-1} + 2^{n-2} + 2^{n-3} + \cdots + 2^0 \text
 \begin{proof}
     Provando em $n$ \\
     \textbf{Caso base (n = 1):  } $2^1 > 2^0$ \\
-    \textbf{Hipótese Indutiva (H.I.): } Assumindo $2^n > 2^{n-1} + 2^{n-2} + 2^{n-3} + \cdots + 2^0$, para $n\in\N$ \\
-    \textbf{Passo indutivo: } Mostrando que
+    \textbf{Hipótese Indutiva (H.I.): } Sendo $n=k$, temos $2^k > 2^{k-1} + 2^{k-2} + 2^{k-3} + \cdots + 2^0$ \\
+    \textbf{Passo indutivo: } Se $n = k-1$ é válido então $n = k$ é válido. Para $n = k-1$ temos:
     
-    $$2^{n-1} > 2^{n-2} + 2^{n-3} + 2^{n-4} + \cdots + 2^0 \text{ é verdadeiro}$$
+    $$2^{k-1} > 2^{k-2} + 2^{k-3} + 2^{k-4} + \cdots + 2^0 \text{ é verdadeiro}$$
 
-    Somando $2^{n-1}$ de ambos os lados, temos:
+    Somando $2^{k-1}$ de ambos os lados, temos:
 
-    $$2^{n-1} + 2^{n-1} > 2^{n-1} + 2^{n-2} + 2^{n-3} + \cdots + 2^0 \Longrightarrow 2^1.2^{n-1} > 2^{n-1} + 2^{n-2} + 2^{n-3} + \cdots + 2^0$$
+    $$2^{k-1} + 2^{k-1} > 2^{k-1} + 2^{k-2} + 2^{k-3} + \cdots + 2^0 \Longrightarrow 2^1.2^{k-1} > 2^{n-1} + 2^{n-2} + 2^{n-3} + \cdots + 2^0$$
 
     \begin{equation*}
-        \boxed{2^{n} > 2^{n-1} + 2^{n-2} + 2^{n-3} + \cdots + 2^0}
+        \boxed{2^{k} > 2^{k-1} + 2^{k-2} + 2^{k-3} + \cdots + 2^0}
     \end{equation*}
 
-    $\therefore$ Pelo princípio da indução matemática, a afirmação é verdadeira para $n\in\N$
+    $\therefore$ Pelo princípio da indução matemática, a afirmação é verdadeira para $n \in \N^*$
 \end{proof}
 
 \begin{problem}{2}
@@ -73,23 +73,23 @@ Prove por indução que $$2^n > 2^{n-1} + 2^{n-2} + 2^{n-3} + \cdots + 2^0 \text
 \begin{proof}
     Provando em $n$ \\
     \textbf{Caso base (n = 1):  } $1^2 = \frac{(2.(1)^3 + 3.(1)^2 + 1)}{6} \Longrightarrow 1=1$ (trivial) \\
-    \textbf{Hipótese Indutiva (H.I.): } Assumindo $1^2 + 2^2 + 3^2 + ··· + n^2 = \frac{(2n^3 + 3n^2 + n)}{6}$, para $n\in\N$ \\
-    \textbf{Passo indutivo: } Mostrando que
+    \textbf{Hipótese Indutiva (H.I.): } Sendo $n=k$, temos: $1^2 + 2^2 + 3^2 + ··· + k^2 = \frac{(2k^3 + 3k^2 + k)}{6}$ \\
+    \textbf{Passo indutivo: } Se $n = k+1$ é válido então $n = k$ é válido. Para $n = k+1$ temos:
 
     \begin{flalign*}
-        1^2 + 2^2 + 3^2 + ··· + (n+1)^2 &= \frac{(2(n+1)^3 + 3(n+1)^2 + (n+1))}{6}                          \\
-        &= \frac{(2(n^3 + 3n^2 + 1) + 3(n^2 + 2n + 1) + (n+1))}{6}                                          \\
-        &= \frac{2n^3 + 6n^2 + 6n + 2 + 3n^2 + 6n + 3 + n + 1}{6}                                           \\
-        1^2 + 2^2 + 3^2 + ··· + n + (n+1)^2 &= \frac{2n^3 + 9k^2 + 13k + 6}{6}                              \\
-        \frac{(2n^3 + 3n^2 + n)}{6} + (n+1)^2 &= \frac{2n^3 + 9k^2 + 13k + 6}{6} &&\text{[Por H.I]}         \\
-        &= \frac{(2n^3 + 3n^2 + n)}{6} + \frac{(6n^2 + 12n + 6)}{6}                                         \\
+        1^2 + 2^2 + 3^2 + ··· + (k+1)^2 &= \frac{(2(k+1)^3 + 3(k+1)^2 + (k+1))}{6}                          \\
+        &= \frac{(2(k^3 + 3k^2 + 1) + 3(k^2 + 2k + 1) + (k+1))}{6}                                          \\
+        &= \frac{2k^3 + 6k^2 + 6k + 2 + 3k^2 + 6k + 3 + k + 1}{6}                                           \\
+        1^2 + 2^2 + 3^2 + ··· + k + (k+1)^2 &= \frac{2k^3 + 9k^2 + 13k + 6}{6}                              \\
+        \frac{(2k^3 + 3k^2 + k)}{6} + (k+1)^2 &= \frac{2k^3 + 9k^2 + 13k + 6}{6} &&\text{[Por H.I]}         \\
+        &= \frac{(2k^3 + 3k^2 + k)}{6} + \frac{(6k^2 + 12k + 6)}{6}                                         \\
     \end{flalign*}
 
     \begin{equation*}
-        \boxed{\frac{(2n^3 + 3n^2 + n)}{6} + (n+1)^2 = \frac{(2n^3 + 3n^2 + n)}{6} + (n+1)^2}
+        \boxed{\frac{(2k^3 + 3k^2 + k)}{6} + (k+1)^2 = \frac{(2k^3 + 3k^2 + k)}{6} + (k+1)^2}
     \end{equation*}
 
-    $\therefore$ Pelo princípio da indução matemática, a afirmação é verdadeira para $n\in\N$
+    $\therefore$ Pelo princípio da indução matemática, a afirmação é verdadeira para $n\in\N^*$
 \end{proof}
  
 % --------------------------------------------------------------
