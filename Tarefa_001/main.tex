@@ -1,0 +1,99 @@
+\documentclass[12pt]{article}
+ 
+\usepackage[portuguese]{babel}
+\usepackage[margin=1in]{geometry} 
+\usepackage{amsmath,amsthm,amssymb,scrextend}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+
+ 
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\I}{\mathbb{I}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Q}{\mathbb{Q}}
+\renewcommand{\qed}{\hfill$\blacksquare$}
+\let\newproof\proof
+\renewenvironment{proof}{\begin{addmargin}[1em]{0em}\begin{newproof}}{\end{newproof}\end{addmargin}\qed}
+% \newcommand{\expl}[1]{\text{\hfill[#1]}$}
+ 
+\newenvironment{theorem}[2][Teorema]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{lemma}[2][Lema]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{problem}[2][Problema]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{exercise}[2][Exercício]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{reflection}[2][Reflecção]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{proposition}[2][Proposição]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{corollary}[2][Corolario]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+ 
+\begin{document}
+ 
+% --------------------------------------------------------------
+%                         Start here
+% --------------------------------------------------------------
+
+\lhead{EACH USP - PPgSI - SIN5013}
+\rhead{Tiago Correa Prata (6907878)}
+ 
+% \maketitle
+ 
+\begin{problem}{1}
+Prove por indução que $$2^n > 2^{n-1} + 2^{n-2} + 2^{n-3} + \cdots + 2^0 \text{, para } n \ge 1$$
+\end{problem}
+
+\begin{proof}
+    Provando em $n$ \\
+    \textbf{Caso base (n = 1):  } $2^1 > 2^0$ \\
+    \textbf{Hipótese Indutiva (H.I.): } Assumindo $2^n > 2^{n-1} + 2^{n-2} + 2^{n-3} + \cdots + 2^0$, para $n\in\N$ \\
+    \textbf{Passo indutivo: } Mostrando que
+    
+    $$2^{n-1} > 2^{n-2} + 2^{n-3} + 2^{n-4} + \cdots + 2^0 \text{ é verdadeiro}$$
+
+    Somando $2^{n-1}$ de ambos os lados, temos:
+
+    $$2^{n-1} + 2^{n-1} > 2^{n-1} + 2^{n-2} + 2^{n-3} + \cdots + 2^0 \Longrightarrow 2^1.2^{n-1} > 2^{n-1} + 2^{n-2} + 2^{n-3} + \cdots + 2^0$$
+
+    \begin{equation*}
+        \boxed{2^{n} > 2^{n-1} + 2^{n-2} + 2^{n-3} + \cdots + 2^0}
+    \end{equation*}
+
+    $\therefore$ Pelo princípio da indução matemática, a afirmação é verdadeira para $n\in\N$
+\end{proof}
+
+\begin{problem}{2}
+    Prove por indução que $$1^2 + 2^2 + 3^2 + ··· + n^2 = \frac{(2n^3 + 3n^2 + n)}{6} \text{, para todo } n \ge 1$$
+\end{problem}
+
+\begin{proof}
+    Provando em $n$ \\
+    \textbf{Caso base (n = 1):  } $1^2 = \frac{(2.(1)^3 + 3.(1)^2 + 1)}{6} \Longrightarrow 1=1$ (trivial) \\
+    \textbf{Hipótese Indutiva (H.I.): } Assumindo $1^2 + 2^2 + 3^2 + ··· + n^2 = \frac{(2n^3 + 3n^2 + n)}{6}$, para $n\in\N$ \\
+    \textbf{Passo indutivo: } Mostrando que
+
+    \begin{flalign*}
+        1^2 + 2^2 + 3^2 + ··· + (n+1)^2 &= \frac{(2(n+1)^3 + 3(n+1)^2 + (n+1))}{6}                          \\
+        &= \frac{(2(n^3 + 3n^2 + 1) + 3(n^2 + 2n + 1) + (n+1))}{6}                                          \\
+        &= \frac{2n^3 + 6n^2 + 6n + 2 + 3n^2 + 6n + 3 + n + 1}{6}                                           \\
+        1^2 + 2^2 + 3^2 + ··· + n + (n+1)^2 &= \frac{2n^3 + 9k^2 + 13k + 6}{6}                              \\
+        \frac{(2n^3 + 3n^2 + n)}{6} + (n+1)^2 &= \frac{2n^3 + 9k^2 + 13k + 6}{6} &&\text{[Por H.I]}         \\
+        &= \frac{(2n^3 + 3n^2 + n)}{6} + \frac{(6n^2 + 12n + 6)}{6}                                         \\
+    \end{flalign*}
+
+    \begin{equation*}
+        \boxed{\frac{(2n^3 + 3n^2 + n)}{6} + (n+1)^2 = \frac{(2n^3 + 3n^2 + n)}{6} + (n+1)^2}
+    \end{equation*}
+
+    $\therefore$ Pelo princípio da indução matemática, a afirmação é verdadeira para $n\in\N$
+\end{proof}
+ 
+% --------------------------------------------------------------
+%     You don't have to mess with anything below this line.
+% --------------------------------------------------------------
+ 
+\end{document}
