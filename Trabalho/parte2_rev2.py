@@ -11,7 +11,7 @@ class URI():
         self.F = 0                                                                          # Θ(1)
         self.memo = defaultdict(dict)                                                       # O(1)
 
-    def resolvedor(self, id, soma):
+    def tentar(self, id, soma):
         '''
         id:     indice da altura da árvore atual.
         soma:   soma acumulada dos níveis anteriores
@@ -31,8 +31,8 @@ class URI():
         elif (id < 0): return False                                                         # O(1)
         if (id in self.memo) & (soma in self.memo[id]): return self.memo[id][soma]          # O(1)
 
-        ent = self.resolvedor(id-1, soma + self.T[id])                                      # T(n-1)
-        saida = self.resolvedor(id-1, soma - self.T[id])                                    # T(n-1)
+        ent = self.tentar(id-1, soma + self.T[id])                                      # T(n-1)
+        saida = self.tentar(id-1, soma - self.T[id])                                    # T(n-1)
 
         if(ent and not saida): self.positivo[id] = True                                     # O(1)
         elif (not ent and saida): self.negativo[id] = True                                  # O(1)
@@ -116,14 +116,11 @@ if __name__=='__main__':
         uri.N, uri.F = list(map(int, input().split()))
 
         if uri.N == 0: break
-        
-        uri.positivo = [False for x in range(40)]
-        uri.negativo = [False for x in range(40)]
-        uri.T = []
+
         for _ in range(0,uri.N):
             uri.T = uri.T + [int(input())]
 
-        valido = uri.resolvedor(uri.N-1,0)
+        valido = uri.tentar(uri.N-1,0)
         if valido:
             for i in range(uri.N):
                 if (uri.positivo[i] and uri.negativo[i]): print('?', end='')
